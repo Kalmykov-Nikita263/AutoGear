@@ -1,6 +1,8 @@
-﻿namespace AutoGear.Identity
+﻿namespace AutoGear.Identity;
+
+public class Class1
 {
-    public class Class1
+    static void A()
     {
 
     }

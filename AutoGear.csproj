@@ -8,6 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="AutoGear.Identity\**" />
+    <EmbeddedResource Remove="AutoGear.Identity\**" />
+    <None Remove="AutoGear.Identity\**" />
+    <Page Remove="AutoGear.Identity\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="AutoGear.Identity\AutoGear.Identity.csproj" />
   </ItemGroup>
 
