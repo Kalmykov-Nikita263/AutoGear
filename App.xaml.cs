@@ -16,10 +16,8 @@ public partial class App : Application
         base.OnStartup(e);
 
         ApplicationHost = ApplicationHostBuilder.CreateDefaultBuilder(e.Args).Build();
-        var mainWindow = ApplicationHost.Services.GetRequiredService<MainWindow>();
 
-        var context = ApplicationHost.Services.GetRequiredService<ApplicationDbContext>();
-        mainWindow.Content.Text = context.Cars.First().CarName;
+        var mainWindow = ApplicationHost.Services.GetRequiredService<MainWindow>();
         mainWindow.Show();
 
         await ApplicationHost.StartAsync();

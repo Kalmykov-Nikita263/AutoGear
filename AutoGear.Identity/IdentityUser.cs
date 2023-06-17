@@ -34,6 +34,8 @@ public class IdentityUser<TKey> where TKey : IEquatable<TKey>
 
     public virtual bool LockoutEnabled { get; set; }
 
+    public virtual bool IsLockedOut { get; set; }
+
     public virtual int AccessFailedCount { get; set; }
 
     public override string ToString()
