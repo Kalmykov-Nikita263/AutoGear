@@ -8,14 +8,39 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="AutoGear.Domain\**" />
     <Compile Remove="AutoGear.Identity\**" />
+    <EmbeddedResource Remove="AutoGear.Domain\**" />
     <EmbeddedResource Remove="AutoGear.Identity\**" />
+    <None Remove="AutoGear.Domain\**" />
     <None Remove="AutoGear.Identity\**" />
+    <Page Remove="AutoGear.Domain\**" />
     <Page Remove="AutoGear.Identity\**" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.7">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.7">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="AutoGear.Domain\AutoGear.Domain.csproj" />
     <ProjectReference Include="AutoGear.Identity\AutoGear.Identity.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

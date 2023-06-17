@@ -39,14 +39,11 @@ public abstract class IdentityDbContext<TUser, TRole, TUserRole> : DbContext
             b.HasKey(r => r.Id);
             b.Property(u => u.Name).HasMaxLength(256);
             b.HasMany<TUserRole>().WithOne().HasForeignKey(ur => ur.RoleId).IsRequired();
-
-            b.ToTable("AspNetRoles");
         });
 
         modelBuilder.Entity<TUserRole>(b =>
         {
             b.HasKey(r => new { r.UserId, r.RoleId });
-            b.ToTable("AspNetUserRoles");
         });
     }
 }
