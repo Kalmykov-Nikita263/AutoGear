@@ -19,9 +19,9 @@ public class UserManager<TUser>
         _context = context;
     }
 
-    public Task<TUser> FindByNameAsync(string userName)
+    public async Task<TUser> FindByNameAsync(string userName)
     {
-        return _context.Users.FirstOrDefaultAsync(u => u.UserName == userName);
+        return (TUser) await _context.Users.FirstOrDefaultAsync(u => u.UserName == userName);
     }
 
     public void IncrementAccessFailedCount(TUser user)

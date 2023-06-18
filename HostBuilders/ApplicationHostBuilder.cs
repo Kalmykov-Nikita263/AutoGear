@@ -1,4 +1,5 @@
 ﻿using AutoGear.Domain;
+using AutoGear.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,6 +16,9 @@ public class ApplicationHostBuilder
             {
                 options.UseSqlServer(hostContext.Configuration.GetConnectionString("DefaultConnection"), migration => migration.MigrationsAssembly("AutoGear"));
             });
+
+            //Вот это закомментируй при создании миграции
+            services.AddAutogearIdentity<IdentityUser, IdentityRole>();
 
             services.AddSingleton<MainWindow>();
         });

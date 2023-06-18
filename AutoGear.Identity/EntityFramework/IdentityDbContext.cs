@@ -2,13 +2,23 @@
 
 namespace AutoGear.Identity.EntityFramework;
 
-public class IdentityDbContext<TUser> : IdentityDbContext<TUser, IdentityRole, IdentityUserRole<string>>
+public class IdentityDbContext<TUser> : IdentityDbContext<TUser, IdentityRole>
     where TUser : IdentityUser
 {
     protected IdentityDbContext() { }
 
     public IdentityDbContext(DbContextOptions options) : base(options) { }
 }
+
+public class IdentityDbContext<TUser, TRole> : IdentityDbContext<IdentityUser, IdentityRole, IdentityUserRole<string>>
+    where TUser : IdentityUser
+    where TRole : IdentityRole
+{
+    protected IdentityDbContext() { }
+
+    public IdentityDbContext(DbContextOptions options) : base(options) { }
+}
+
 
 public abstract class IdentityDbContext<TUser, TRole, TUserRole> : DbContext 
     where TUser : IdentityUser 

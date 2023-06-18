@@ -31,7 +31,7 @@ public class SignInManager<TUser>
 
             _userManager.ResetAccessFailedCount(user);
 
-            ApplicationUserDataContext.Instance.CurrentUser = currentUser;
+            WpfDataContext.Instance.CurrentUser = currentUser;
 
             return new SignInResult { Succeeded = true };
         }
@@ -51,7 +51,7 @@ public class SignInManager<TUser>
 
     public Task SignOutAsync()
     {
-        ApplicationUserDataContext.Instance.CurrentUser = null;
+        WpfDataContext.Instance.CurrentUser = null;
         return Task.CompletedTask;
     }
 }
